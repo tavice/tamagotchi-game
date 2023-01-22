@@ -1,3 +1,16 @@
 body{
     background-color: aquamarine;
 }
+
+img{
+    max-width: 50%;
+}
+
+/*img:hover{
+    -webkit-transform: rotate(360deg) scale(2);
+	transform: rotate(360deg) scale(2);
+	-webkit-transition: 1s ease-in-out;
+	transition: 1s ease-in-out;
+} */
+
+

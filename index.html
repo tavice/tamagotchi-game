@@ -11,18 +11,25 @@
 <body>
     <h1>Tamagotchi Game</h1>
 
-    <form>
+   <!-- <form>
         <label for="tamaname">Enter the name of your Tamagotchi:</label>
         <input type="text" id="tamaname" name="tamaname">
       </form>
 
+-->
+
+    <button id="startGame">Start the Game !</button>
     <div class="container">
         <button id="feedPet"> Feed your Tamagotchi</button>
         <button id="TurnOffLight"> Turn off the lights</button>
         <button id="playPet"> Play with your Tamagotchi</button>
     </div>
 
+    <div id="tamaPicContainer">
+        <img id="tamaPic" src="./img/kitten.png" alt="tama">
+    </div>
 
+<h2>your Tamagotchi Metrics:</h2>
     <table>
         <tr>
           <th class="stats" id="hunger">Hunger</th>
@@ -31,12 +38,16 @@
           <th class="stats" id="age">Age</th>
         </tr>
         <tr>
-          <td>0 </td>
-          <td>0 </td>
-          <td>0 </td>
-          <td>0 </td>
+          <td id="hungerResult">0 </td>
+          <td id="boredomResult">0 </td>
+          <td id="sleepinessResult">0 </td>
+          <td id="ageResult">0 </td>
         </tr>
       </table>
+
+      <footer>
+        <p><a href="https://www.freepik.com/free-vector/happy-monster-character-novel-story-vector-illustration-flat-style-bat-designer-create-banner-web-page-card-novel-story_21585861.htm#query=character%20svg&position=10&from_view=keyword">Image by jcomp</a> on Freepik</p>
+      </footer>
     
 </body>
 </html>
