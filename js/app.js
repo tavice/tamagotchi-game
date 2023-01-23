@@ -8,6 +8,7 @@ let boredomResult = document.querySelector('#boredomResult')
 let sleepinessResult = document.querySelector('#sleepinessResult')
 let ageResult = document.querySelector('#ageResult')
 let startGame = document.querySelector('#startGame')
+let faceSelector = document.querySelector('.face')
 
 //Create class Game
 
@@ -43,21 +44,18 @@ class Tamagotchi {
 
     increaseHunger() {
         
-        setInterval(() => {
-            this.hunger++;
-            if (hungerResult === 10){
-                stop(increaseHunger);
-            }
-        }, 2000)
+               setInterval(() => {
+                this.hunger++;
+            }, 2000)
+
+            
     }
 
     increaseSleepiness() {
         
-       let sleepInterval = setInterval(() => {
+       setInterval(() => {
             this.sleepiness++;
-            if (sleepinessResult === 10){              //if it goes above 10 the function will stop
-                stop(sleepInterval);
-            }
+            
         }, 2000)
 
        
@@ -67,9 +65,7 @@ class Tamagotchi {
         
         setInterval(() => {
             this.boredom++;
-            if (this.boredom === 10){
-                this.stop(this.increaseBored);
-            }
+          
         }, 2000)
         
         
@@ -97,12 +93,14 @@ startGame.addEventListener('click', (e) =>{
 
  
  //start to increase the values:
+
      displayResult()
 
     tama1.increaseAge()
     tama1.increaseBored()
     tama1.increaseHunger()
     tama1.increaseSleepiness()
+
 
 
   
@@ -146,34 +144,102 @@ startGame.addEventListener('click', (e) =>{
     function displayResult(){
         setInterval(() => {
 
-            // Hunger (1-10 scale)    
-            hungerResult.innerHTML = tama1.hunger
+            // Hunger (1-10 scale)
+            if(tama1.hunger < 10){
+
+                hungerResult.innerHTML = tama1.hunger
+            } else{
+                hungerResult.innerHTML = "not enough food"
+                alert('your tamagotchi is dead')
+            }   
             
             
             // Sleepiness (1-10 scale) 
-            sleepinessResult.innerHTML = tama1.sleepiness
+            if(tama1.sleepiness < 10){
+
+                sleepinessResult.innerHTML = tama1.sleepiness
+            } else{
+                sleepinessResult.innerHTML = "not enough sleep"
+                alert('your tamagotchi is dead')
+            }
             
             // Boredom (1-10 scale)
-            boredomResult.innerHTML = tama1.boredom
+            if(tama1.boredom < 10){
+
+                boredomResult.innerHTML = tama1.boredom
+            } else {
+                boredomResult.innerHTML = "Tamagotchi is too bored"
+                // alert('your tamagotchi is dead')
+                // let answer = prompt('Would you like to play again (YES) or (NO)')
+                // if(answer === 'YES'){
+                //     window.location.reload()
+                // } else if ( answer === 'NO'){
+                //     window.close()
+                // } else {
+                //     prompt('Would you like to play again (YES) or (NO)')
+                // }
+            }
             
             // Age 
             ageResult.innerHTML = tama1.age
 
 
+            //SAD FACE
+            sadFace()
+
+            //STOP THE GAME
+            stopGame()
+
+
         }, 1000);
-        
+
+    }
+    
+    //STOP THR GAME
+     function stopGame(){
+        if(tama1.hunger >10){
+            clearInterval(displayResult())
+            alert('your tamagotchi is dead')
+        }
     }
 
-   
+    function sadFace(){
+        if(tama1.hunger >5 || tama1.boredom >  5 || tama1.sleepiness > 5){
+
+            document.querySelector('.face').className ='sadface'
+            document.querySelector('.mouth').className ='mouthSad'
+            document.querySelector('.left-eye').className ='left-eye-sad'
+            document.querySelector('.right-eye').className ='right-eye-sad'
+        } else {
+
+            document.querySelector('.sadface').className ='face'
+            document.querySelector('.mouthSad').className ='mouth'
+            document.querySelector('.left-eye-sad').className ='left-eye'
+            document.querySelector('.right-eye-sad').className ='right-eye'
+
+        }
+
     
-
-
-   
-
-    
-
-    
+}
 
 
    
 })
+
+
+
+
+
+
+ //SAD FACE TEST
+
+//  function sadFace(){
+//         document.getElementById("SadModeText").innerText = ' Sad Face is ON'
+//         document.querySelector('.face').className ='sadface'
+//         document.querySelector('.mouth').className ='mouthSad'
+//         document.querySelector('.left-eye').className ='left-eye-sad'
+//         document.querySelector('.right-eye').className ='right-eye-sad'
+
+    
+// }
+
