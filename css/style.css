@@ -156,3 +156,10 @@ body{
     
     padding: 0px 30px 0px 30px ;
 }      
+
+
+#panel {
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  

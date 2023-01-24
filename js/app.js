@@ -78,6 +78,11 @@ class Tamagotchi {
     
 }
 
+//00 KEEP THE TAMGOTCHI UNANIMATED
+
+let marquee = document.getElementById("myMarquee");
+marquee.stop();
+
 
 //0 Start the game
 //1 - Create a new Tamagotchi using Prompt
@@ -90,6 +95,7 @@ startGame.addEventListener('click', (e) =>{
   //Add tamagotchi name  
     let tamaNameText = document.querySelector('#tamaName')
     tamaNameText.innerHTML = 'Your tamagotchi name is: ' + tama1.name
+    marquee.start()
 
  
  //start to increase the values:
@@ -187,6 +193,10 @@ startGame.addEventListener('click', (e) =>{
             //SAD FACE
             sadFace()
 
+
+            //EVOLVE or MORPH FACE
+            morphPet()
+
             //STOP THE GAME
             stopGame()
 
@@ -198,12 +208,12 @@ startGame.addEventListener('click', (e) =>{
     //STOP THE GAME
      function stopGame(){
         if(tama1.hunger >10 || tama1.sleepiness >10|| tama1.boredom >10){
+            marquee.pause()
             clearInterval(displayResult())
-          
             alert('your tamagotchi is dead...' + ' it lived ' + (tama1.age -1) + ' years')
                 let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
                 if(answer === 'YES'){
-                    window.location.reload()
+                    window.location.reload() ///start game function look at that //check remove event // set the attribute back to zero and trigger the start game function again
                 } else if ( answer === 'NO'){
                     window.close()
                 } else {
@@ -229,8 +239,18 @@ startGame.addEventListener('click', (e) =>{
             // document.querySelector('.right-eye-sad').className ='right-eye'
 
             else{
-                document.querySelector(".TamaEmoji").innerHTML = "😃"
+                document.querySelector(".TamaEmoji").innerHTML = "👼"
             }}
+
+//Morph your pet at certain ages.
+
+    function  morphPet(){
+        if(tama1.age > 10 && (tama1.hunger <= 5 && tama1.boredom <= 5 && tama1.sleepiness <= 5)){
+            document.querySelector(".TamaEmoji").innerHTML = "😇"}
+        else{
+            sadFace()
+        }
+    }       
 
     
    
@@ -252,4 +272,23 @@ startGame.addEventListener('click', (e) =>{
 
     
 // }
+
+
+//TEST INSTRUCTION PANEL
+
+const button = document.getElementById("toggle-button");
+const panel = document.getElementById("panel");
+
+button.addEventListener("click", function() {
+  if (panel.style.display === "none") {
+    panel.style.display = "block";
+    button.innerHTML =' ☝️instructions above👆 !!!'
+  } else {
+    panel.style.display = "none";
+  }
+});
+
+
+
+
 
