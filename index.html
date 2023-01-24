@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="./js/app.js" defer></script>
     <title>Tamagotchi Project - Thomas Avice</title>
    
@@ -19,16 +22,21 @@
 
 -->
 
-    <button id="startGame">Start the Game !</button>
+    <button class="button buttonStart" id="startGame">Start the Game !</button>
+
     <div class="container">
-        <button id="feedPet"> Feed your Tamagotchi</button>
-        <button id="TurnOffLight"> Turn off the lights</button>
-        <button id="playPet"> Play with your Tamagotchi</button>
+        <button class="button buttonFeedPet" id="feedPet"> 🍟 Feed your Tamagotchi</button>
+        <button class="button buttonTurnOffLight" id="TurnOffLight"> 💤 Turn off the lights</button>
+        <button class="button buttonPlayPet" id="playPet"> ⚽ Play with your Tamagotchi</button>
     </div>
 
-<p id="tamaName">'Your tamagotchi name is: '</p>
+<p id="tamaName"></p>
 
-    <div class="happyFace">
+<div class="TamaEmoji"> 😃</div>
+
+ <!-- tried to create an emoji from scratch ...still some work in progress 
+
+<div class="happyFace">
         <div class="face">
             <div class="mouth"></div>
             <div class="eye-section">
@@ -36,21 +44,21 @@
                 <div class="right-eye"></div>
         </div>
 
-    </div>
+    </div>  --> 
     
 
 <h2>your Tamagotchi Metrics:</h2>
-    <table>
+    <table class="button tableSpecific">
         <tr>
           <th class="stats" id="hunger">Hunger</th>
-          <th class="stats" id="boredom">Boredom</th>
           <th class="stats" id= "sleepiness">Sleepiness</th>
+          <th class="stats" id="boredom">Boredom</th>
           <th class="stats" id="age">Age</th>
         </tr>
         <tr>
           <td id="hungerResult">0 </td>
-          <td id="boredomResult">0 </td>
           <td id="sleepinessResult">0 </td>
+          <td id="boredomResult">0 </td>
           <td id="ageResult">0 </td>
         </tr>
       </table>

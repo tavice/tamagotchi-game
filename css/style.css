@@ -1,18 +1,81 @@
 body{
     background-color: aquamarine;
+    text-align:center;
+    font-family: 'Press Start 2P', cursive;
 }
 
-img{
-    max-width: 50%;
-}
+.button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
 
-/*img:hover{
-    -webkit-transform: rotate(360deg) scale(2);
-	transform: rotate(360deg) scale(2);
-	-webkit-transition: 1s ease-in-out;
-	transition: 1s ease-in-out;
-} */
+  .buttonStart {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+  }
+  
+  .buttonStart:hover {
+    background-color: black;
+    color: white;
+  }
 
+
+  .buttonFeedPet {
+    background-color: white; 
+    color: black; 
+    border: 2px solid red;
+  }
+  
+  .buttonFeedPet:hover {
+    background-color: red;
+    color: white;
+  }
+
+
+  .buttonTurnOffLight {
+    background-color: white; 
+    color: black; 
+    border: 2px solid blue;
+  }
+  
+  .buttonTurnOffLight:hover {
+    background-color: blue;
+    color: white;
+  }
+
+  .buttonPlayPet {
+    background-color: white; 
+    color: black; 
+    border: 2px solid grey;
+  }
+  
+  .buttonPlayPet:hover {
+    background-color: grey;
+    color: white;
+  }
+  
+
+  .TamaEmoji{
+    font-size: 200px;
+  }
+
+
+  
+
+
+  
+/* TRIED TO DO AN EMOJI USING CSS ...STILL SOME WORK IN PROGRESS
 .face {
     background-color: green;
     width: 400px;
@@ -86,3 +149,10 @@ img{
       .right-eye-sad {
         right: 20px;
       }
+
+      */
+
+.stats{
+    
+    padding: 0px 30px 0px 30px ;
+}      

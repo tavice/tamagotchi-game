@@ -145,26 +145,26 @@ startGame.addEventListener('click', (e) =>{
         setInterval(() => {
 
             // Hunger (1-10 scale)
-            if(tama1.hunger < 10){
+            if(tama1.hunger < 11){
 
                 hungerResult.innerHTML = tama1.hunger
             } else{
                 hungerResult.innerHTML = "not enough food"
-                alert('your tamagotchi is dead')
+               // alert('your tamagotchi is dead')
             }   
             
             
             // Sleepiness (1-10 scale) 
-            if(tama1.sleepiness < 10){
+            if(tama1.sleepiness < 11){
 
                 sleepinessResult.innerHTML = tama1.sleepiness
             } else{
                 sleepinessResult.innerHTML = "not enough sleep"
-                alert('your tamagotchi is dead')
+               // alert('your tamagotchi is dead')
             }
             
             // Boredom (1-10 scale)
-            if(tama1.boredom < 10){
+            if(tama1.boredom < 11){
 
                 boredomResult.innerHTML = tama1.boredom
             } else {
@@ -195,34 +195,44 @@ startGame.addEventListener('click', (e) =>{
 
     }
     
-    //STOP THR GAME
+    //STOP THE GAME
      function stopGame(){
-        if(tama1.hunger >10){
+        if(tama1.hunger >10 || tama1.sleepiness >10|| tama1.boredom >10){
             clearInterval(displayResult())
-            alert('your tamagotchi is dead')
+          
+            alert('your tamagotchi is dead...' + ' it lived ' + (tama1.age -1) + ' years')
+                let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
+                if(answer === 'YES'){
+                    window.location.reload()
+                } else if ( answer === 'NO'){
+                    window.close()
+                } else {
+                    prompt('Would you like to play again (YES) or (NO)')
+                }
         }
     }
 
     function sadFace(){
-        if(tama1.hunger >5 || tama1.boredom >  5 || tama1.sleepiness > 5){
+        if((tama1.hunger >5 && tama1.hunger <= 9) || (tama1.boredom >  5 && tama1.boredom <= 9) || (tama1.sleepiness > 5 && tama1.sleepiness <= 9)){
 
-            document.querySelector('.face').className ='sadface'
-            document.querySelector('.mouth').className ='mouthSad'
-            document.querySelector('.left-eye').className ='left-eye-sad'
-            document.querySelector('.right-eye').className ='right-eye-sad'
-        } else {
+            document.querySelector(".TamaEmoji").innerHTML = "🤢"
 
-            document.querySelector('.sadface').className ='face'
-            document.querySelector('.mouthSad').className ='mouth'
-            document.querySelector('.left-eye-sad').className ='left-eye'
-            document.querySelector('.right-eye-sad').className ='right-eye'
+            // document.querySelector('.face').className ='sadface'
+            // document.querySelector('.mouth').className ='mouthSad'
+            // document.querySelector('.left-eye').className ='left-eye-sad'
+            // document.querySelector('.right-eye').className ='right-eye-sad'
+        } else if (tama1.hunger > 9 || tama1.boredom > 9 || tama1.sleepiness > 9){ document.querySelector(".TamaEmoji").innerHTML = "☠️"}
 
-        }
+            // document.querySelector('.sadface').className ='face'
+            // document.querySelector('.mouthSad').className ='mouth'
+            // document.querySelector('.left-eye-sad').className ='left-eye'
+            // document.querySelector('.right-eye-sad').className ='right-eye'
+
+            else{
+                document.querySelector(".TamaEmoji").innerHTML = "😃"
+            }}
 
     
-}
-
-
    
 })
 
