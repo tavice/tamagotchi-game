@@ -9,6 +9,7 @@ let sleepinessResult = document.querySelector('#sleepinessResult')
 let ageResult = document.querySelector('#ageResult')
 let startGame = document.querySelector('#startGame')
 let faceSelector = document.querySelector('.face')
+let marqueetrigger = document.getElementById('#myMarquee')
 
 //Create class Game
 
@@ -155,11 +156,19 @@ startGame.addEventListener('click', (e) =>{
 
                 hungerResult.innerHTML = tama1.hunger
             } else{
-               // alert("your tamagotchi is dead because it wasn't fed enough ... it lived: " + (tama1.age -1) + ' years')
+                
+               alert("your tamagotchi is dead because it wasn't fed enough ... it lived: " + (tama1.age -1) + ' years')
+               let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
+                           if(answer === 'YES'){
+                               window.location.reload() 
+                           } else if ( answer === 'NO'){
+                               window.close()
+                           } else {
+                               prompt('Would you like to play again (YES) or (NO)')
+                           }
                 hungerResult.innerHTML = "not enough food"
-                marquee.pause()
                 clearInterval(displayResult())
-                //window.location.reload();
+                
 
             
             }   
@@ -170,11 +179,19 @@ startGame.addEventListener('click', (e) =>{
 
                 sleepinessResult.innerHTML = tama1.sleepiness
             } else{
-                //alert("your tamagotchi is dead because it didn't sleep enough... it lived: " + (tama1.age -1) + ' years')
+                
+                alert("your tamagotchi is dead because it didn't sleep enough... it lived: " + (tama1.age -1) + ' years')
+                let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
+                           if(answer === 'YES'){
+                               window.location.reload() 
+                           } else if ( answer === 'NO'){
+                               window.close()
+                           } else {
+                               prompt('Would you like to play again (YES) or (NO)')
+                           }
                 sleepinessResult.innerHTML = "not enough sleep"
-                marquee.pause()
                 clearInterval(displayResult())
-                //window.location.reload();
+                
             }
             
             // Boredom (1-10 scale)
@@ -182,11 +199,19 @@ startGame.addEventListener('click', (e) =>{
 
                 boredomResult.innerHTML = tama1.boredom
             } else {
-                //alert("your tamagotchi is dead because it didn't play enough... it lived: " + (tama1.age -1) + ' years')
+                
+                alert("your tamagotchi is dead because it didn't play enough... it lived: " + (tama1.age -1) + ' years')
+                let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
+                           if(answer === 'YES'){
+                               window.location.reload() 
+                           } else if ( answer === 'NO'){
+                               window.close()
+                           } else {
+                               prompt('Would you like to play again (YES) or (NO)')
+                           }
                 boredomResult.innerHTML = "Tamagotchi is too bored"
-                marquee.pause()
                 clearInterval(displayResult())
-               // window.location.reload();
+               
             
             }
             
@@ -207,30 +232,33 @@ startGame.addEventListener('click', (e) =>{
             //EVOLVE or MORPH FACE
             morphPet()
 
+            //STOP MARQUEE
+            stopMarquee()
+
             //STOP THE GAME
-            stopGame()
+            //stopGame()
 
 
         }, 1000);
 
     }
     
-    //STOP THE GAME ///start game function look at that //check remove event // set the attribute back to zero and trigger the start game function again
-     function stopGame(){
-        if(tama1.hunger >= 10 || tama1.sleepiness >= 10|| tama1.boredom >= 10){
-            marquee.pause()
-            clearInterval(displayResult())
-            alert('your tamagotchi is dead...' + ' it lived ' + (tama1.age -1) + ' years')
-                let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
-                if(answer === 'YES'){
-                    window.location.reload() 
-                } else if ( answer === 'NO'){
-                    window.close()
-                } else {
-                    prompt('Would you like to play again (YES) or (NO)')
-                }
-        }
-    }
+    //STOP THE GAME 
+    //  function stopGame(){
+    //     if(tama1.hunger >= 10 || tama1.sleepiness >= 10|| tama1.boredom >= 10){
+    //         marquee.pause()
+    //         clearInterval(displayResult())
+    //         alert('your tamagotchi is dead...' + ' it lived ' + (tama1.age -1) + ' years')
+    //             let answer = prompt('Would you like to play again? Answer: (YES) or (NO)')
+    //             if(answer === 'YES'){
+    //                 window.location.reload() 
+    //             } else if ( answer === 'NO'){
+    //                 window.close()
+    //             } else {
+    //                 prompt('Would you like to play again (YES) or (NO)')
+    //             }
+    //     }
+    // }
 
     function sadFace(){
         if((tama1.hunger >5 && tama1.hunger <= 9) || (tama1.boredom >  5 && tama1.boredom <= 9) || (tama1.sleepiness > 5 && tama1.sleepiness <= 9)){
@@ -262,6 +290,14 @@ startGame.addEventListener('click', (e) =>{
         }
     }       
 
+    //function to stop marquee when dead
+
+    function stopMarquee(){
+        if(tama1.hunger > 9 || tama1.boredom > 9 || tama1.sleepiness > 9){
+            marquee.stop()
+
+        }
+    }
     
    
 })
